@@ -14,7 +14,7 @@ app.use(cookieParser())
 
 connectdb()
 app.use('/api/user',router)
-app.get('/',(res,req)=>{
+app.get('/',(req,res)=>{
    res.send("this is Home")
 })
 
