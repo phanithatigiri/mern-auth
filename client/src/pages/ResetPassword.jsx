@@ -53,8 +53,8 @@ const ResetPassword = () => {
            required
           />
         
-         {error && <p className='text-red-500 font-medium mt-2'>{error}</p>}
-         {message && <p className='text-green-500  mb-4 font-medium mt-4'>{message}</p>}
+         {error && <p className='text-red-500 text-[15px] mt-2'>{error}</p>}
+         {message && <p className='text-green-500  mb-4 mt-4'>{message}</p>}
 
           <button type='submit' disabled={isLoading} className='bg-[#0e3547] text-white rounded-md w-full mt-4 flex justify-center py-2 hover:scale-[1.03] active:scale-[0.99] cursor-pointer'>
             {isLoading ? <Loading/> :"set New Password" }

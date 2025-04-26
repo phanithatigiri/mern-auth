@@ -89,7 +89,7 @@ export const userAuthStore = create((set)=>({
 			set({ user:response.data.user, isAuthenticated: true, isLoading: false });
 			return response.data;
 		} catch (error) {
-			set({ error: error.response.data.message || "Error verifying email", isLoading: false });
+			set({ error: error.response.data.message || "Error verifying email", isLoading: false , });
 			throw error;
 		}
 	},

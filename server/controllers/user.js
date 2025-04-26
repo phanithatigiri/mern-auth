@@ -7,6 +7,11 @@ import transporter from "../config/nodemailer.js";
 
 
 export const signup =  async (req,res)=>{
+
+  const Validatepassword = (password)=>{
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^*?])[A-Za-z\d!@#$%^&*?]{8,}$/.test(password)
+  }
+
     const {email,password,name} = req.body 
      
     try {
@@ -22,10 +27,11 @@ export const signup =  async (req,res)=>{
        return res.status(400).json({sucess:false,message:"user already Exists"})
       }
 
-
-      if(password.length < 6){
-        return res.status(400).json({success:false,message:"Type at least 6 characters"})
+     
+      if(!Validatepassword(password)){
+        return res.status(400).json({success:false,message:"Password must be at least 8 characters and include a number, a lowercase letter, an uppercase letter, and a symbol."})
       }
+      
       
       const hassedPassword = await bcryptjs.hash(password,10)
       const verificationOtp = Math.floor(10000 + Math.random()*900000).toString()
@@ -242,6 +248,9 @@ export const forgotPassword = async (req, res) => {
 
 export const resetPassword = async (req,res) =>{
    
+   const Validatepassword = (password)=>{
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%&*?])[A-Za-z\d!@#$%&*?]{8,}$/.test(password)
+   }
 
    try {
 
@@ -258,8 +267,8 @@ export const resetPassword = async (req,res) =>{
     return res.status(400).json({success:false,message:"Invalid Token or Token Expires Try agin "})
   }
 
-  if(password.length < 6){
-    return res.status(400).json({success:false,message:"Type at least 6 characters"})
+  if(!Validatepassword(password)){
+     return res.status(400).json({success:false,message:"Password must be at least 8 characters and include a number, a lowercase letter, an uppercase letter, and a symbol."})
   }
 
   const hassedpassword = await bcryptjs.hash(password,10)

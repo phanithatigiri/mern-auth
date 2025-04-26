@@ -25,7 +25,7 @@ const Signup = () => {
     
      
   } catch (error) {
-     toast.error(error.response.data.message)
+     console.log(error)
   }
        
      
@@ -74,7 +74,7 @@ const Signup = () => {
                   onChange={(e)=>setpassword(e.target.value)}
                   autoComplete='new-password'
                   />
-                  {error && <p className='text-red-600 font-semibold mt-2'>{error}</p>}
+                  {error && <p className='text-red-500 text-[15px] mt-2'>{error}</p>}
                    <span className='absolute right-3 top-[34px] cursor-pointer 'onClick={()=>setshowpassword((prev)=>!prev)} >
                     {showpassword ? <AiOutlineEyeInvisible size={22}/> : <AiOutlineEye size={22} />} </span>
                  </div>

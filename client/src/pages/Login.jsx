@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
 import { userAuthStore } from "../authstore/userstore";
 import toast from "react-hot-toast";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
     
     const {login,isLoading,error} = userAuthStore()
-    
+    const [showpassword,setshowpassword] =useState(false)
     const [email,setemail] =useState('')
     const [password,setpassword] =useState('')
   
@@ -45,10 +46,10 @@ const Login = () => {
                           autoComplete='email'
                           />
                      </div>
-                     <div>
+                     <div className="relative"> 
                         <label className="block mb-1 text-sm font-semibold" htmlFor="password">password</label>
                          <input 
-                          type='password' 
+                          type={showpassword ? "text" : "password"}
                           id='password'
                           placeholder="*************"
                           className="w-full border px-4 py-2 focus:outline-none focus:ring-offset-1 focus:ring-1 focus:ring-offset-[#0e6e6d] rounded-md"
@@ -57,12 +58,15 @@ const Login = () => {
                           onChange={(e)=>setpassword(e.target.value)}
                           autoComplete='new-password'
                           />
+                          <span className="absolute right-3 top-[34px] cursor-pointer" onClick={()=>setshowpassword((prev)=>!prev)}>
+                            {showpassword ? <AiOutlineEyeInvisible size={22}/> : <AiOutlineEye size={22}/>}
+                            </span>
                      </div>
                      
                  </div>
                   <Link  to={'/forgotPassword'}>Forgot Password?</Link>
 
-                   {error && <p className="text-red-600">{error}</p>}
+                   {error && <p className="text-red-500">{error}</p>}
 
                   <button type='submit'
                    disabled={isLoading}
