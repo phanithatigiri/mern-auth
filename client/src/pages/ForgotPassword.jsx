@@ -4,7 +4,7 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import { userAuthStore } from '../authstore/userstore';
 import { IoMdMailUnread } from "react-icons/io";
 import {toast} from 'react-hot-toast'
-import Loading from '../components/loading';
+import Loading from '../components/Loading';
 const ForgotPassword = () => {
 
   const [email,setemail] = useState('')

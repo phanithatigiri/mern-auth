@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { userAuthStore } from '../authstore/userstore'
 import toast from 'react-hot-toast'
-import Loading from '../components/loading'
+import Loading from '../components/Loading'
 
 const ResetPassword = () => {
     const {token} =useParams()

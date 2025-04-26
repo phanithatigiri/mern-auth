@@ -2,7 +2,7 @@ import React, { useState, useRef} from 'react';
 import { userAuthStore } from '../authstore/userstore';
 import {toast} from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import Loading from '../components/loading';
+import Loading from '../components/Loading';
 
 const VerifyEmail = ({ onSubmit }) => {
   const [otp, setOtp] = useState(new Array(6).fill(""));

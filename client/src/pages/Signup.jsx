@@ -3,7 +3,7 @@ import { Link, useNavigate,} from 'react-router-dom'
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"; 
 import { userAuthStore } from '../authstore/userstore';
 import {toast} from 'react-hot-toast';
-import Loading from '../components/loading';
+import Loading from '../components/Loading';
 
 const Signup = () => {
 

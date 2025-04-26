@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { userAuthStore } from '../authstore/userstore'
-import Loading from '../components/loading'
+import Loading from '../components/Loading'
 
 
 

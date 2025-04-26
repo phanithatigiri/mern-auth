@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Loading from "../components/loading";
+import Loading from "../components/Loading";
 import { userAuthStore } from "../authstore/userstore";
 import toast from "react-hot-toast";
 
