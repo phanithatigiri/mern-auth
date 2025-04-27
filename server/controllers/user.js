@@ -12,6 +12,10 @@ export const signup =  async (req,res)=>{
     return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^*?])[A-Za-z\d!@#$%^&*?]{8,}$/.test(password)
   }
 
+  const Validateemail = (email)=>{
+    return /^[a-zA-z\d._%+-]+@[a-zA-Z0-9.-]\.[a-zA-Z]{2,}$/.test(email)
+  }
+
     const {email,password,name} = req.body 
      
     try {
@@ -25,6 +29,10 @@ export const signup =  async (req,res)=>{
 
       if (userAlreadyExists){
        return res.status(400).json({sucess:false,message:"user already Exists"})
+      }
+      
+      if(!Validateemail(email)){
+         return res.status(400).json({success:false,message:"Please enter a valid email address (e.g., example@domain.com)"})
       }
 
      
