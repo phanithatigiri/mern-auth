@@ -13,7 +13,7 @@ export const signup =  async (req,res)=>{
   }
 
   const Validateemail = (email)=>{
-    return /^[a-zA-z\d._%+-]+@[a-zA-Z0-9.-]\.[a-zA-Z]{2,}$/.test(email)
+    return /^[a-zA-z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
   }
 
     const {email,password,name} = req.body 
