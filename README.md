@@ -30,7 +30,8 @@ We use **Nodemailer** to send:
 - Frontend: **React.js**
 - Backend: **Node.js** + **Express.js**
 - Database: **MongoDB**
-- Email Service: **Nodemailer**
+- Email Service: **Nodemailer + Brevo SMTP**
+- State Management: **Zustand for clean global auth state ⚡**
 - Hosting: **Render**
 
 
